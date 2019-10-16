@@ -22,5 +22,10 @@ public class FlightService {
     public Optional<Flight> findFlightById(Long id) {
         return flightRepository.findById(id);
     }
+
+    public Flight storeFlight(Flight flight) {
+        return flightRepository.save(flight);
+    }
+
 }
 

@@ -18,9 +18,13 @@ public class Flight implements Serializable {
     private Long id;
 
     @NotBlank
+    @Getter
+    @Setter
     private String airlineName;
 
     @NotBlank
+    @Getter
+    @Setter
     private String start;
 
     @NotBlank
