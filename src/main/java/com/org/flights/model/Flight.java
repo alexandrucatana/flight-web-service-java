@@ -14,8 +14,10 @@ import java.io.Serializable;
 @EntityListeners(AuditingEntityListener.class)
 public class Flight implements Serializable {
     @Id
+    @Getter
+    @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @NotBlank
     @Getter

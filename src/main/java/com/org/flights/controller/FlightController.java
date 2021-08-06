@@ -20,12 +20,14 @@ import java.util.Optional;
 @RequestMapping("/v1/flights")
 @RequiredArgsConstructor
 @Log
+@CrossOrigin
 public class FlightController {
 
     private final FlightService flightService;
 
     // Get All Flights
     @GetMapping
+    @RequestMapping
     public ResponseEntity<List<Flight>> getAllFlights() {
         return ResponseEntity.ok(flightService.findAllFlights());
     }
@@ -33,6 +35,7 @@ public class FlightController {
 
     // Get a Single Flight
     @GetMapping("/{id}")
+    @RequestMapping("/{id}")
     public ResponseEntity<Flight> getFlightById(@PathVariable(value = "id") Long flightId) {
         Optional<Flight> flight = flightService.findFlightById(flightId);
 
@@ -47,7 +50,8 @@ public class FlightController {
         return ResponseEntity.ok(flight.get());
     }
 
-    @PostMapping
+    @PostMapping("/create_flight")
+    @RequestMapping("/create_flight")
     public ResponseEntity<Flight> saveFlight(@Valid @RequestBody Optional<Flight> flight, UriComponentsBuilder ucBuilder) {
 
         if (!flight.isPresent()) {

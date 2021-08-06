@@ -16,6 +16,8 @@ public class FlightService {
     private final  FlightRepository flightRepository;
 
     public List<Flight> findAllFlights() {
+        List<Flight> debugFlight = flightRepository.findAll();
+
         return flightRepository.findAll();
     }
 
