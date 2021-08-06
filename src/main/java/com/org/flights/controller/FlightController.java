@@ -56,11 +56,12 @@ public class FlightController {
 
             return new ResponseEntity(errorBody, HttpStatus.NO_CONTENT);
         }
-        
+
         flightService.storeFlight(flight.get());
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/{id}").buildAndExpand(flight.get().getId()).toUri());
+        headers.setLocation(ucBuilder.path("/v1/flights/{id}").buildAndExpand(flight.get().getId()).toUri());
 
+        // returns HTTP 201 if the resource is created, otherwise HTTP 202 is returned
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
