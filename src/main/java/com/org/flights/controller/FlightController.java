@@ -26,8 +26,8 @@ public class FlightController {
     private final FlightService flightService;
 
     // Get All Flights
-    @GetMapping
-    @RequestMapping
+    @GetMapping("/getflights")
+    @RequestMapping("/getflights")
     public ResponseEntity<List<Flight>> getAllFlights() {
         return ResponseEntity.ok(flightService.findAllFlights());
     }
